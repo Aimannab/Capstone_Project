@@ -5,6 +5,9 @@ package com.example.android.countrieslibrary;
 
 import java.io.Serializable;
 
+/**
+ * Created by Aiman Nabeel on 29/11/2018.
+ */
 //Parcelable cannot be resolved even after imports. Uncomment code and see
 public class CountryData implements Serializable /*implements Parcelable*/ {
 
