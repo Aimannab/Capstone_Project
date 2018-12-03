@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Android Library</string>
+    <string name="action_share">Share</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="app_title">#SpinMeTo</string>
+    <string name="swipe">Swipe</string>
+</resources>
