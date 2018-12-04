@@ -10,6 +10,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import com.example.android.countrieslibrary.CountryData;
 /**
  * Created by Aiman Nabeel on 24/10/2018.
  */
@@ -18,6 +19,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private GoogleMap mMap;
     public static final String COUNTRIES_KEY_EXTRA = "country";
+    CountryData countryData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,9 +46,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        //LatLng sydney = new LatLng(-34, 151);
+        LatLng countryNav = new LatLng(countryData.getCountryLat(), countryData.getCountryLng());
+        mMap.addMarker(new MarkerOptions().position(countryNav).title("Marker in Country"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(countryNav));
 
         //double lat = getLat();
         //double lng = getLng();

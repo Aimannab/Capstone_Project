@@ -23,17 +23,17 @@ public class CountryData implements Serializable /*implements Parcelable*/ {
 
     }
 
-    public double getCountryLat(double lat) {
+    public double getCountryLat() {
 
-        return lat;
+        return data2;
     }
 
-    public double getCountryLng(double lng) {
+    public double getCountryLng() {
 
-        return lng;
+        return data3;
     }
 
-    public String getCountryName(String name) {
+    public String getCountryName() {
 
         return data1;
     }
