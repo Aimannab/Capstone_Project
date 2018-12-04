@@ -21,7 +21,12 @@ public class Countries {
 
         countryData = new ArrayList<CountryData>();
         CountryData data = new CountryData("Albania", 41.153332	, 20.168331	);
+        CountryData data1 = new CountryData("Afghanistan", 33.93911	,67.709953);
+        CountryData data2 = new CountryData("Algeria", 28.033886, 1.659626	);
         countryData.add(data);
+        countryData.add(data1);
+        countryData.add(data2);
+        countryData.size();
 
             //countries = new ArrayList<String>();
 
