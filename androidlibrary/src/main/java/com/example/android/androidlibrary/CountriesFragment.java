@@ -14,6 +14,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.android.countrieslibrary.CountryData;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -67,11 +69,13 @@ public class CountriesFragment extends Fragment {
 
     private void setRandomCountry(View view) {
         Intent intent = getActivity().getIntent();
-        String country = intent.getStringExtra(COUNTRIES_KEY_EXTRA);
-        String id = intent.getStringExtra(COUNTRIES_KEY_EXTRA_ID);
+        //String country = intent.getStringExtra(COUNTRIES_KEY_EXTRA);
+        //String id = intent.getStringExtra(COUNTRIES_KEY_EXTRA_ID);
+        CountryData country = (CountryData) intent.getExtras().getSerializable(COUNTRIES_KEY_EXTRA);
+
         if (country != null) {
             TextView textView = view.findViewById(R.id.random_country);
-            textView.setText(country);
+            textView.setText(country.getCountryName());
         }
 
         if (country != null) {
@@ -80,7 +84,7 @@ public class CountriesFragment extends Fragment {
             List<ContentValues> list = new ArrayList<ContentValues>();
             Context context = view.getContext();
             ContentValues cv = new ContentValues();
-            cv.put(CountriesDBContract.RandomCountriesList.COLUMN_RANDOM_COUNTRY_NAME, country);
+            cv.put(CountriesDBContract.RandomCountriesList.COLUMN_RANDOM_COUNTRY_NAME, country.getCountryName());
             //cv.put(CountriesDBContract.RandomCountriesList.COLUMN_RANDOM_COUNTRY_ID, id);
 
             list.add(cv);
