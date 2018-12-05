@@ -147,7 +147,7 @@ public class MainActivity extends AppCompatActivity implements EndpointsAsyncTas
         //intent.putExtra(Intent.EXTRA_TEXT, result);
 
         Bundle bundle = new Bundle();
-        bundle.putSerializable("value", result);
+        bundle.putSerializable(COUNTRIES_KEY_EXTRA, result);
         intent.putExtras(bundle);
         startActivity(intent);
     }
