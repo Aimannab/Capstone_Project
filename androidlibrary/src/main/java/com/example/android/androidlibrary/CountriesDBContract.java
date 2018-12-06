@@ -26,5 +26,7 @@ public class CountriesDBContract {
         public static final String TABLE_NAME = "randomcountrieslist";
         public static final String COLUMN_RANDOM_COUNTRY_NAME = "randomcountryname";
         public static final String COLUMN_RANDOM_COUNTRY_ID = "randomcountryid";
+        //public static final String COLUMN_RANDOM_COUNTRY_LAT = "randomcountrylat";
+        //public static final String COLUMN_RANDOM_COUNTRY_LNG = "randomcountrylng";
     }
 }

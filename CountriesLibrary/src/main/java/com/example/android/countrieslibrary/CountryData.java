@@ -17,9 +17,9 @@ public class CountryData implements Serializable /*implements Parcelable*/ {
 
     public CountryData(String countryName, double lat, double lng) {
 
-        countryName = data1;
-        lat = data2;
-        lng = data3;
+        data1 = countryName;
+        data2 = lat;
+        data3 = lng;
 
     }
 

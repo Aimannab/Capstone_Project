@@ -4,6 +4,8 @@ import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -15,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.android.countrieslibrary.CountryData;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,6 +70,7 @@ public class CountriesFragment extends Fragment {
         return view;
     }
 
+
     private void setRandomCountry(View view) {
         Intent intent = getActivity().getIntent();
         //String country = intent.getStringExtra(COUNTRIES_KEY_EXTRA);
@@ -85,12 +89,22 @@ public class CountriesFragment extends Fragment {
             Context context = view.getContext();
             ContentValues cv = new ContentValues();
             cv.put(CountriesDBContract.RandomCountriesList.COLUMN_RANDOM_COUNTRY_NAME, country.getCountryName());
+            //cv.put(CountriesDBContract.RandomCountriesList.COLUMN_RANDOM_COUNTRY_LAT, country.getCountryLat());
+            //cv.put(CountriesDBContract.RandomCountriesList.COLUMN_RANDOM_COUNTRY_LNG, country.getCountryLng());
             //cv.put(CountriesDBContract.RandomCountriesList.COLUMN_RANDOM_COUNTRY_ID, id);
 
             list.add(cv);
 
             //Inserting new random country name via ContentResolver
             Uri uri = getActivity().getContentResolver().insert(CountriesDBContract.RandomCountriesList.CONTENT_URI, cv);
+
+            //Saving country object here
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+            SharedPreferences.Editor prefsEditor = prefs.edit();
+            Gson gson = new Gson();
+            String json = gson.toJson(country); // myObject - instance of MyObject
+            prefsEditor.putString("country", json);
+            prefsEditor.commit();
         }
     }
 }

@@ -1,6 +1,8 @@
 package com.example.android.androidlibrary;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentActivity;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -11,6 +13,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import com.example.android.countrieslibrary.CountryData;
+import com.google.gson.Gson;
+
 /**
  * Created by Aiman Nabeel on 24/10/2018.
  */
@@ -45,11 +49,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        Gson gson = new Gson();
+        String json = prefs.getString("country", "");
+        CountryData countryData = gson.fromJson(json, CountryData.class);
+
         // Add a marker in Sydney and move the camera
         LatLng sydney = new LatLng(-34, 151);
-        //LatLng countryNav = new LatLng(countryData.getCountryLat(), countryData.getCountryLng());
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Country"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        //double countryLat = countryData.getCountryLat();
+        LatLng countryNav = new LatLng(countryData.getCountryLat(), countryData.getCountryLng());
+        mMap.addMarker(new MarkerOptions().position(countryNav).title("Marker in Country"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(countryNav));
 
         //double lat = getLat();
         //double lng = getLng();
