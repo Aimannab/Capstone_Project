@@ -7,7 +7,7 @@
         android:id="@+id/country_name_text_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
         android:layout_weight="1"
         android:fontFamily="sans-serif"
         android:textColor="@color/white"

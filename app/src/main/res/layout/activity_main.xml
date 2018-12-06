@@ -18,7 +18,7 @@
     <TextView
         android:id="@+id/tvSwipeDescription"
         android:paddingTop="350dp"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:gravity="center_horizontal"
         android:textColor="#ffffff"
         android:layout_width="300dp"

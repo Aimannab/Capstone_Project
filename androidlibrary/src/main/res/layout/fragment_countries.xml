@@ -45,8 +45,8 @@
             android:src="@drawable/shareicon"
             app:civ_border_width="2dp"
             app:civ_border_color="#FF000000"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
             android:clickable="true"/>
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -62,8 +62,8 @@
             android:src="@drawable/googlemapsicon"
             app:civ_border_width="2dp"
             app:civ_border_color="#FF000000"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
             android:clickable="true"/>
 
     </LinearLayout>
