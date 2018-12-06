@@ -35,6 +35,7 @@
         <de.hdodenhof.circleimageview.CircleImageView
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/share_fab"
+            android:contentDescription="@string/share_fab_desc"
             app:pressedTranslationZ="12dp"
             android:elevation="@dimen/fab_elevation"
             app:elevation="6dp"
@@ -51,6 +52,7 @@
         <de.hdodenhof.circleimageview.CircleImageView
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/map_fab"
+            android:contentDescription="@string/map_fab_desc"
             app:pressedTranslationZ="12dp"
             android:elevation="@dimen/fab_elevation"
             app:elevation="6dp"

@@ -9,6 +9,7 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/all_random_movies_view"
+        android:contentDescription="@string/history_countries"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

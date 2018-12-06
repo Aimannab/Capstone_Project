@@ -4,6 +4,7 @@
 
     <item
         android:id="@+id/action_random_countries_list"
+        android:contentDescription="@string/menu_desc"
         android:title="Countries List"
         app:showAsAction="never" />
 
