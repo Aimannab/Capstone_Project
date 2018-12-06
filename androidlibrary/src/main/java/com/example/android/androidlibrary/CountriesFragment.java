@@ -98,7 +98,8 @@ public class CountriesFragment extends Fragment {
             //Inserting new random country name via ContentResolver
             Uri uri = getActivity().getContentResolver().insert(CountriesDBContract.RandomCountriesList.CONTENT_URI, cv);
 
-            //Saving country object here
+            //Saving CountryData object here to be used in MapsActivity.java
+            //https://stackoverflow.com/questions/5418160/store-and-retrieve-a-class-object-in-shared-preference
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
             SharedPreferences.Editor prefsEditor = prefs.edit();
             Gson gson = new Gson();

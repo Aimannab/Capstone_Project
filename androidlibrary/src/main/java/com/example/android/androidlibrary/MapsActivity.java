@@ -49,41 +49,18 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
+        //Using Shared preferences here to get the saved CountryData object from CountriesFragment.java
+        //https://stackoverflow.com/questions/5418160/store-and-retrieve-a-class-object-in-shared-preference
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         Gson gson = new Gson();
         String json = prefs.getString("country", "");
         CountryData countryData = gson.fromJson(json, CountryData.class);
 
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        //double countryLat = countryData.getCountryLat();
+        // Add a marker in country and move the camera
+        //LatLng sydney = new LatLng(-34, 151); - For Testing
+        //double countryLat = countryData.getCountryLat(); - For Testing
         LatLng countryNav = new LatLng(countryData.getCountryLat(), countryData.getCountryLng());
-        mMap.addMarker(new MarkerOptions().position(countryNav).title("Marker in Country"));
+        mMap.addMarker(new MarkerOptions().position(countryNav).title(countryData.getCountryName()));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(countryNav));
-
-        //double lat = getLat();
-        //double lng = getLng();
-        //Intent intent = this.getIntent();
-        //String country = intent.getStringExtra(COUNTRIES_KEY_EXTRA);
-        //LatLng countryLatLng = new LatLng(lat, lng);
-        //mMap.addMarker(new MarkerOptions().position(countryLatLng).title("Marker in " + country));
-        //mMap.moveCamera(CameraUpdateFactory.newLatLng(countryLatLng));
-
-
-
-        /*try {
-            List<Address> address = new Geocoder(this).getFromLocationName("Ireland", 1);
-            if (address == null) {
-                //Log.e(TAG, "Not found");
-            } else {
-                Address loc = address.get(0);
-                //Log.e(TAG, loc.getLatitude() + " " + loc.getLongitude());
-                LatLng pos = new LatLng(loc.getLatitude(), loc.getLongitude());
-                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(pos, 14));
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
-
     }
 }
