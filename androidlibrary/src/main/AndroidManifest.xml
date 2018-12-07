@@ -18,6 +18,7 @@
 
     <application>
         android:name="android.support.multidex.MultiDexApplication" >
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.

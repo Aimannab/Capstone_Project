@@ -27,6 +27,7 @@ import com.google.api.client.googleapis.services.GoogleClientRequestInitializer;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import android.support.v7.widget.Toolbar;
 
 import static com.example.android.androidlibrary.CountriesFragment.COUNTRIES_KEY_EXTRA;
 
@@ -105,6 +106,9 @@ public class MainActivity extends AppCompatActivity implements EndpointsAsyncTas
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
+
         //Swipe code
         //Ref:https://www.spaceotechnologies.com/android-swipe-gestures-tutorial/
         //Ref:https://stackoverflow.com/questions/4139288/android-how-to-handle-right-to-left-swipe-gestures
@@ -130,8 +134,9 @@ public class MainActivity extends AppCompatActivity implements EndpointsAsyncTas
             }
         });
     }
+
     private void initializeView() {
-        tvSwipeDescription=(TextView) findViewById(R.id.tvSwipeDescription);
+        tvSwipeDescription = (TextView) findViewById(R.id.tvSwipeDescription);
     }
 
     //In case a button is used
@@ -155,18 +160,4 @@ public class MainActivity extends AppCompatActivity implements EndpointsAsyncTas
         intent.putExtras(bundle);
         startActivity(intent);
     }
-
-    /*protected void createLocationRequest() {
-        LocationRequest mLocationRequest = new LocationRequest();
-        mLocationRequest.setInterval(10000);
-        mLocationRequest.setFastestInterval(5000);
-        mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-
-        LocationSettingsRequest.Builder builder = new LocationSettingsRequest.Builder()
-                .addLocationRequest(mLocationRequest);
-
-        SettingsClient client = LocationServices.getSettingsClient(this);
-        Task<LocationSettingsResponse> task = client.checkLocationSettings(builder.build());
-    }*/
-
 }
