@@ -17,6 +17,8 @@ public class CountriesActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //Ref: https://stackoverflow.com/questions/3389501/activity-transition-in-android
+        overridePendingTransition(R.anim.fadein, R.anim.fadeout);
         setContentView(R.layout.activity_countries);
 
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
