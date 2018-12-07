@@ -4,9 +4,12 @@ import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.Location;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Pair;
 import android.view.View;
@@ -26,6 +29,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.example.android.androidlibrary.CountriesFragment.COUNTRIES_KEY_EXTRA;
+
 import com.example.android.countrieslibrary.CountryData;
 
 /**
@@ -41,7 +45,7 @@ class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> 
     //Ref: https://github.com/GoogleCloudPlatform/gradle-appengine-templates/tree/77e9910911d5412e5efede5fa681ec105a0f02ad/HelloEndpoints#2-connecting-your-android-app-to-the-backend
     @Override
     protected String doInBackground(Pair<Context, String>... params) {
-        if(myApiService == null) {  // Only do this once
+        if (myApiService == null) {  // Only do this once
             MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport(),
                     new AndroidJsonFactory(), null)
                     // options for running against local devappserver
@@ -74,18 +78,18 @@ class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> 
 
     private Callback callback;
 
-    public interface Callback{
+    public interface Callback {
         void onFinished(String result);
     }
 
-    public EndpointsAsyncTask(Callback callback){
+    public EndpointsAsyncTask(Callback callback) {
         this.callback = callback;
     }
 
     @Override
     protected void onPostExecute(String result) {
         //Toast.makeText(context, result, Toast.LENGTH_LONG).show();
-        if(result != null){
+        if (result != null) {
             callback.onFinished(result);
         }
     }
@@ -151,5 +155,18 @@ public class MainActivity extends AppCompatActivity implements EndpointsAsyncTas
         intent.putExtras(bundle);
         startActivity(intent);
     }
+
+    /*protected void createLocationRequest() {
+        LocationRequest mLocationRequest = new LocationRequest();
+        mLocationRequest.setInterval(10000);
+        mLocationRequest.setFastestInterval(5000);
+        mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+
+        LocationSettingsRequest.Builder builder = new LocationSettingsRequest.Builder()
+                .addLocationRequest(mLocationRequest);
+
+        SettingsClient client = LocationServices.getSettingsClient(this);
+        Task<LocationSettingsResponse> task = client.checkLocationSettings(builder.build());
+    }*/
 
 }
