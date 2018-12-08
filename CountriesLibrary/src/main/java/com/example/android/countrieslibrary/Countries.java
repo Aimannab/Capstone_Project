@@ -18,6 +18,7 @@ public class Countries {
     private List<CountryData> countryData;
     public Countries() {
 
+        //Country name, lat, lng details
         //Ref: https://developers.google.com/public-data/docs/canonical/countries_csv
         countryData = new ArrayList<CountryData>();
         CountryData d1 = new CountryData("Afghanistan", 33.93911	,67.709953);
