@@ -53,17 +53,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private double mLatitudeLabel;
     private double mLongitudeLabel;
 
-    @SuppressLint("MissingPermission")
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_maps);
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
-    }
-
     //Location service - related code
     //Ref: https://developer.android.com/training/location/retrieve-current#permissions
     //Ref: https://iteritory.com/android-location-service-tutorial-fetch-users-last-known-location/
@@ -155,6 +144,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 });
     }
     //End of Location service - related code
+
+    @SuppressLint("MissingPermission")
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_maps);
+        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
+    }
 
     /**
      * Manipulates the map once available.
