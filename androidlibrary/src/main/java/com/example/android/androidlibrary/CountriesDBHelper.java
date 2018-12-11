@@ -24,8 +24,8 @@ public class CountriesDBHelper extends SQLiteOpenHelper {
         final String SQL_CREATE_RANDOM_COUNTRIES_TABLE = "CREATE TABLE " +
                 CountriesDBContract.RandomCountriesList.TABLE_NAME + " (" +
                 CountriesDBContract.RandomCountriesList._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-                CountriesDBContract.RandomCountriesList.COLUMN_RANDOM_COUNTRY_NAME + " TEXT NOT NULL, " +
-                "UNIQUE " + "(" + CountriesDBContract.RandomCountriesList.COLUMN_RANDOM_COUNTRY_ID + ")" + " ON CONFLICT REPLACE" +
+                CountriesDBContract.RandomCountriesList.COLUMN_RANDOM_COUNTRY_NAME + " TEXT NOT NULL" +
+                //"UNIQUE " + "(" + CountriesDBContract.RandomCountriesList.COLUMN_RANDOM_COUNTRY_ID + ")" + " ON CONFLICT REPLACE" +
                 ");";
 
         db.execSQL(SQL_CREATE_RANDOM_COUNTRIES_TABLE);
