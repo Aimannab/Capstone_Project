@@ -11,6 +11,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -34,7 +35,6 @@ import com.example.android.countrieslibrary.CountryData;
 import com.google.gson.Gson;
 
 import java.util.Locale;
-
 /**
  * Created by Aiman Nabeel on 24/10/2018.
  */
@@ -136,6 +136,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             //mLongitudeText.setText(String.format(Locale.ENGLISH, "%s: %f",mLongitudeLabel, mLastLocation.getLongitude()));
                             mLatitudeLabel = mLastLocation.getLatitude();
                             mLongitudeLabel = mLastLocation.getLongitude();
+
+                            // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+                            //Q: Why it's important to set getMapAsync in getLastLocation and not in onCreate?
+                            //A: The problem occurs because both getMapAsync() and getLastLocation() depend on a listener, which we don't know
+                            //exactly when they will be called. But we need to make sure we first set the latitude / longitude, before using them in the onMapReady().
+                            SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                                    .findFragmentById(R.id.map);
+                            mapFragment.getMapAsync(MapsActivity.this);
                         } else {
                             Log.i(TAG, "Inside getLocation function. Error while getting location");
                             System.out.println(TAG + task.getException());
@@ -150,10 +158,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
     }
 
     /**
@@ -165,6 +169,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      * it inside the SupportMapFragment. This method will only be triggered once the user has
      * installed Google Play services and returned to the app.
      */
+    @SuppressLint("MissingPermission")
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
