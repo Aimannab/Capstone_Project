@@ -7,6 +7,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.RemoteViews;
 
+import com.example.android.androidlibrary.RandomCountriesResultListActivity;
+
 /**
  * Implementation of App Widget functionality.
  */
@@ -19,8 +21,8 @@ public class SpinMeToWidget extends AppWidgetProvider {
         // Construct the RemoteViews object
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.spin_me_to_widget);
 
-        //Creating an Intent to launch DetailActivity when clicked
-        Intent intent = new Intent(context, MainActivity.class);
+        //Creating an Intent to launch RandomCountriesList when clicked
+        Intent intent = new Intent(context, RandomCountriesResultListActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
         views.setOnClickPendingIntent(R.id.widget_textview, pendingIntent);
 

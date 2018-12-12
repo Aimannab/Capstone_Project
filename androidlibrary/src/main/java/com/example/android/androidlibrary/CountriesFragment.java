@@ -67,6 +67,9 @@ public class CountriesFragment extends Fragment {
             }
         });
 
+        //update widget
+        //CountriesWidgetService.startRandomCountriesListService(getContext(), country);
+
         return view;
     }
 
@@ -80,6 +83,13 @@ public class CountriesFragment extends Fragment {
         if (country != null) {
             TextView textView = view.findViewById(R.id.random_country);
             textView.setText(country.getCountryName());
+
+            //Saving Data for Shared Preferences for Widget
+            Gson gson = new Gson();
+            String json = gson.toJson(country);
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putString(COUNTRIES_KEY_EXTRA, json).commit();
         }
 
         if (country != null) {
