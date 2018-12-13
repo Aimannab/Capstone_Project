@@ -9,16 +9,18 @@ import android.widget.RemoteViewsService;
 
 import com.example.android.androidlibrary.CountriesFragment;
 import com.example.android.androidlibrary.RandomCountriesResultListActivity;
+import com.example.android.countrieslibrary.CountryData;
 import com.google.common.reflect.TypeToken;
 
 import java.util.ArrayList;
 import com.google.gson.Gson;
 
-import static com.example.android.capstone_project.CountriesWidgetProvider.randomCountriesList;
+//import static com.example.android.capstone_project.CountriesWidgetProvider.randomCountriesList;
 
 public class GridWidgetService extends RemoteViewsService {
 
-    ArrayList<String> randomCountriesForWidgets= new ArrayList<>();
+    //ArrayList<String> randomCountriesForWidgets= new ArrayList<>();
+    CountryData countryData;
 
     @Override
     public RemoteViewsFactory onGetViewFactory(Intent intent) {
@@ -42,14 +44,12 @@ public class GridWidgetService extends RemoteViewsService {
         @Override
         public void onDataSetChanged() {
 
-            //Retrieving Data for Random Countries Result List
-            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-            String json2 = preferences.getString(CountriesFragment.COUNTRIES_KEY_EXTRA, "");
-            if (!json2.equals("")) {
-                Gson gson = new Gson();
-                randomCountriesForWidgets = gson.fromJson(json2, new TypeToken<ArrayList<String>>() {
-                }.getType());
-            }
+            //Using Shared preferences here to get the saved CountryData object from CountriesFragment.java
+            //https://stackoverflow.com/questions/5418160/store-and-retrieve-a-class-object-in-shared-preference
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+            Gson gson = new Gson();
+            String json = prefs.getString("country", "");
+            countryData = gson.fromJson(json, CountryData.class);
 
         }
 
@@ -58,9 +58,10 @@ public class GridWidgetService extends RemoteViewsService {
 
         }
 
+        //TODO: Check if needed
         @Override
         public int getCount() {
-            return randomCountriesList.size();
+            return 0;
         }
 
         //Setting widget_gridview_item here
@@ -68,7 +69,7 @@ public class GridWidgetService extends RemoteViewsService {
         public RemoteViews getViewAt(int position) {
 
             RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget_gridview_item);
-            views.setTextViewText(R.id.widget_gridview_item, randomCountriesList.get(position));
+            views.setTextViewText(R.id.widget_gridview_item, countryData.getCountryName());
 
             //Setting up FillIn Intent here for the gridview - To fill in the PendingIntent Template
             Intent fillInIntent = new Intent();

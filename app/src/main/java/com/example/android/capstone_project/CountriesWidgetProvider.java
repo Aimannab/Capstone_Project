@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class CountriesWidgetProvider extends AppWidgetProvider {
 
-    static ArrayList<String> randomCountriesList = new ArrayList<>();
+    //static ArrayList<String> randomCountriesList = new ArrayList<>();
 
     static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
                                 int appWidgetId) {

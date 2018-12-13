@@ -83,13 +83,6 @@ public class CountriesFragment extends Fragment {
         if (country != null) {
             TextView textView = view.findViewById(R.id.random_country);
             textView.setText(country.getCountryName());
-
-            //Saving Data for Shared Preferences for Widget
-            Gson gson = new Gson();
-            String json = gson.toJson(country);
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-            SharedPreferences.Editor editor = prefs.edit();
-            editor.putString(COUNTRIES_KEY_EXTRA, json).commit();
         }
 
         if (country != null) {
@@ -108,7 +101,7 @@ public class CountriesFragment extends Fragment {
             //Inserting new random country name via ContentResolver
             Uri uri = getActivity().getContentResolver().insert(CountriesDBContract.RandomCountriesList.CONTENT_URI, cv);
 
-            //Saving CountryData object here to be used in MapsActivity.java
+            //Saving CountryData object here to be used in MapsActivity.java + GridWidgetService for widget
             //https://stackoverflow.com/questions/5418160/store-and-retrieve-a-class-object-in-shared-preference
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
             SharedPreferences.Editor prefsEditor = prefs.edit();
