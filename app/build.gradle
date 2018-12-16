@@ -29,7 +29,7 @@ android {
 
     }
 
-    /*signingConfigs {
+    signingConfigs {
         debug {
             keyAlias 'key0'
             keyPassword '1234'
@@ -47,13 +47,13 @@ android {
             keyAlias 'key0'
             keyPassword '1234'
         }
-    }*/
+    }
 
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            //signingConfig signingConfigs.release
+            signingConfig signingConfigs.release
         }
     }
 

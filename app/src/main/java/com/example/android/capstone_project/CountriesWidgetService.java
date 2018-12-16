@@ -17,7 +17,6 @@ public class CountriesWidgetService extends IntentService {
     /**
      * Creates an IntentService.  Invoked by your subclass's constructor.
      *
-     * @param Used to name the worker thread, important only for debugging.
      */
     public CountriesWidgetService() {
         super("UpdateCountriesService");

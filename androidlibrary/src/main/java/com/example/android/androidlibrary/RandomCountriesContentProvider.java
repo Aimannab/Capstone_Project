@@ -56,7 +56,7 @@ public class RandomCountriesContentProvider extends ContentProvider {
 
         Cursor retCursor;
 
-        //Query for all FAVORITES
+        //Query for all COUNTRIES
         switch (match) {
             case RANDOM_COUNTRIES:
                 retCursor = db.query(TABLE_NAME,
