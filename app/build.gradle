@@ -33,8 +33,8 @@ android {
         debug {
             keyAlias 'key0'
             keyPassword '1234'
-            storeFile file('keystore/android.jks')
-            storePassword 'android'
+            storeFile file('keystore/androidapp.jks')
+            storePassword '1234'
         }
     }
 
@@ -42,8 +42,8 @@ android {
         release {
             // You need to specify either an absolute path or include the
             // keystore file in the same directory as the build.gradle file.
-            storeFile file('keystore/android.jks')
-            storePassword 'android'
+            storeFile file('keystore/androidapp.jks')
+            storePassword '1234'
             keyAlias 'key0'
             keyPassword '1234'
         }
