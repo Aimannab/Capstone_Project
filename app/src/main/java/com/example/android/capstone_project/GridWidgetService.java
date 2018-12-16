@@ -58,7 +58,6 @@ public class GridWidgetService extends RemoteViewsService {
 
         }
 
-        //TODO: Check if needed
         @Override
         public int getCount() {
             return 0;
