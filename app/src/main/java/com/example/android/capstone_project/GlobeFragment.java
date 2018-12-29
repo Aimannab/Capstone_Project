@@ -84,6 +84,8 @@ public class GlobeFragment extends GlobeMapFragment {
         addStars();
     }
 
+    //WhirlyGlobe Component Tester class Ref: https://github.com/mousebird/WhirlyGlobe/tree/master/ios/apps/WhirlyGlobeComponentTester
+    //Ref: https://github.com/imobdevdevice/Ibobber/blob/master/app/src/main/java/com/reelsonar/ibobber/WhirlyGlobeFragment.java
     private void addStars() {
 
         try {

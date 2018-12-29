@@ -4,7 +4,7 @@
     android:initialLayout="@layout/spin_me_to_widget"
     android:minWidth="40dp"
     android:minHeight="40dp"
-    android:previewImage="@drawable/globe"
+    android:previewImage="@drawable/drawing"
     android:resizeMode="horizontal|vertical"
     android:updatePeriodMillis="1800000"
     android:widgetCategory="home_screen"></appwidget-provider>
