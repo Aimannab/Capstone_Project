@@ -2,10 +2,12 @@ package com.example.android.androidlibrary;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.LoaderManager;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.content.Loader;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -54,6 +56,11 @@ public class RandomCountriesResultListActivity extends AppCompatActivity impleme
         mAdapter = new RandomCountriesResultListAdapter(this, cursor);
         //Linking the RandomCountries adapter to RecyclerView
         randomCoutriesRecyclerView.setAdapter(mAdapter);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setStatusBarColor(ContextCompat.getColor(this,R.color.colorPrimary)); //status bar or the time bar at the top
+        }
+
     }
 
     @NonNull

@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Pair;
 import android.view.View;
@@ -109,6 +110,8 @@ public class MainActivity extends AppCompatActivity implements EndpointsAsyncTas
 
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
+        getWindow().setStatusBarColor(ContextCompat.getColor(this,R.color.colorPrimary)); //status bar or the time bar at the top
+
 
         //Swipe code
         //Ref:https://www.spaceotechnologies.com/android-swipe-gestures-tutorial/
