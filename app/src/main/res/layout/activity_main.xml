@@ -14,7 +14,7 @@
         android:id="@+id/fragment"
         android:contentDescription="@string/welcome_note"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"/>
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/my_toolbar"
@@ -32,7 +32,7 @@
         android:layout_alignParentEnd="true"
         android:gravity="center_horizontal"
         android:textColor="#ffffff"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:ignore="RtlCompat" />
 

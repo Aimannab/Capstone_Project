@@ -13,6 +13,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Pair;
 import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.android.androidlibrary.CountriesActivity;
@@ -100,7 +101,7 @@ class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> 
 public class MainActivity extends AppCompatActivity implements EndpointsAsyncTask.Callback {
     TextView tvSwipeDescription;
 
-    @SuppressLint("ClickableViewAccessibility")
+    @SuppressLint({"ClickableViewAccessibility", "NewApi"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

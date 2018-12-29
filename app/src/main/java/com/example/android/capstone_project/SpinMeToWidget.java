@@ -24,7 +24,7 @@ public class SpinMeToWidget extends AppWidgetProvider {
         //Creating an Intent to launch RandomCountriesList when clicked
         Intent intent = new Intent(context, RandomCountriesResultListActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
-        views.setOnClickPendingIntent(R.id.widget_textview, pendingIntent);
+        views.setOnClickPendingIntent(R.id.widget_image, pendingIntent);
 
         // Instruct the widget manager to update the widget
         appWidgetManager.updateAppWidget(appWidgetId, views);

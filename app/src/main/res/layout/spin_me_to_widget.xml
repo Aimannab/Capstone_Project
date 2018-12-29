@@ -3,18 +3,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/widget_textview"
-        android:text="#SpinMeTo"
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:padding="16dp"
-        android:textSize="40sp"
-        android:textColor="#ffffff" />
+        android:id="@+id/widget_image"
+        android:src="@drawable/drawing"/>
 
 </LinearLayout>

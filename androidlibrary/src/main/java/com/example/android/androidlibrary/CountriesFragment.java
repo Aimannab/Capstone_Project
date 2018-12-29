@@ -47,12 +47,12 @@ public class CountriesFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = getActivity().getIntent();
-                String country = intent.getStringExtra(COUNTRIES_KEY_EXTRA);
+                CountryData country = (CountryData) intent.getExtras().getSerializable(COUNTRIES_KEY_EXTRA);
 
                 // TODO Add app link once shared on Google Play Store
                 startActivity(Intent.createChooser(ShareCompat.IntentBuilder.from(getActivity())
                         .setType("text/plain")
-                        .setText("#SpinMeTo " + country)
+                        .setText("#SpinMeTo " + country.getCountryName())
                         .getIntent(), getString(R.string.action_share)));
             }
         });
