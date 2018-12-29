@@ -12,11 +12,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.mousebird.maply.Atmosphere;
 import com.mousebird.maply.GlobeController;
 import com.mousebird.maply.GlobeMapFragment;
 import com.mousebird.maply.LayerThread;
 import com.mousebird.maply.MaplyBaseController;
 import com.mousebird.maply.MaplyStarModel;
+import com.mousebird.maply.Point3d;
 import com.mousebird.maply.QuadImageTileLayer;
 import com.mousebird.maply.RemoteTileInfo;
 import com.mousebird.maply.RemoteTileSource;
@@ -82,6 +84,7 @@ public class GlobeFragment extends GlobeMapFragment {
         globeControl.animatePositionGeo(-3.6704803, 40.5023056, 1.5, -10.0);
         globeControl.setAutoRotate(0,60);
         addStars();
+        addAtmosphere();
     }
 
     //WhirlyGlobe Component Tester class Ref: https://github.com/mousebird/WhirlyGlobe/tree/master/ios/apps/WhirlyGlobeComponentTester
@@ -94,6 +97,15 @@ public class GlobeFragment extends GlobeMapFragment {
         } catch ( IOException exc) {
             Log.e("WhirlyGlobeFragment", "Got error adding stars");
         }
+    }
+
+    //Ref: https://github.com/mousebird/WhirlyGlobe/blob/master/android/library/Android/src/com/mousebird/maply/Atmosphere.java
+    //ref: https://github.com/mousebird/WhirlyGlobe/blob/master/android/apps/AutoTesterAndroid/app/src/main/java/com/mousebirdconsulting/autotester/TestCases/AtmosphereTestCase.java
+    private void addAtmosphere() {
+        Atmosphere atmosphere = new Atmosphere(globeControl,  MaplyBaseController.ThreadMode.ThreadAny);
+        atmosphere.setSunPosition(new Point3d(1.0,0.0,0.0));
+        atmosphere.setWaveLength(new float[]{0.650f, 0.570f, 0.475f});
+        atmosphere.getOuterRadius();
     }
 
 }
