@@ -100,7 +100,7 @@ public class GlobeFragment extends GlobeMapFragment {
     }
 
     //Ref: https://github.com/mousebird/WhirlyGlobe/blob/master/android/library/Android/src/com/mousebird/maply/Atmosphere.java
-    //ref: https://github.com/mousebird/WhirlyGlobe/blob/master/android/apps/AutoTesterAndroid/app/src/main/java/com/mousebirdconsulting/autotester/TestCases/AtmosphereTestCase.java
+    //Ref: https://github.com/mousebird/WhirlyGlobe/blob/master/android/apps/AutoTesterAndroid/app/src/main/java/com/mousebirdconsulting/autotester/TestCases/AtmosphereTestCase.java
     private void addAtmosphere() {
         Atmosphere atmosphere = new Atmosphere(globeControl,  MaplyBaseController.ThreadMode.ThreadAny);
         atmosphere.setSunPosition(new Point3d(1.0,0.0,0.0));
