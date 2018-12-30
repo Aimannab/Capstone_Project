@@ -5,7 +5,7 @@
     android:name="com.example.android.androidlibrary.CountriesFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/space2"
+    android:background="@drawable/space4"
     tools:layout="@layout/fragment_countries" />
 
 

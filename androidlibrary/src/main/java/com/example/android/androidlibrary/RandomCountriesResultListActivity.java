@@ -42,7 +42,7 @@ public class RandomCountriesResultListActivity extends AppCompatActivity impleme
         setSupportActionBar(myToolbar);// Get a support ActionBar corresponding to this toolbar
         ActionBar ab = getSupportActionBar();
         // Enable the Up button
-        ab.setDisplayHomeAsUpEnabled(true);
+        //ab.setDisplayHomeAsUpEnabled(true);
 
         RecyclerView randomCoutriesRecyclerView;
         randomCoutriesRecyclerView = new RecyclerView(this);
